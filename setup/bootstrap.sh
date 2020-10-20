@@ -8,7 +8,7 @@
 # Set env vars
 export PATH=~/Desktop/fabric-samples/bin:$PATH
 export FABRIC_CFG_PATH=${PWD}
-CHANNEL_NAME=allarewelcome
+export CHANNEL_NAME=allarewelcome
 
 # Remove previous crypto material and config transactions
 mkdir -p config
