@@ -6,7 +6,7 @@
 #
 
 # Set env vars
-export PATH=$GOPATH/src/github.com/hyperledger/fabric/build/bin:${PWD}/../bin:${PWD}:$PATH
+export PATH=~/Desktop/fabric-samples/bin:$PATH
 export FABRIC_CFG_PATH=${PWD}
 CHANNEL_NAME=allarewelcome
 
