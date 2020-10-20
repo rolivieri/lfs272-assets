@@ -11,4 +11,4 @@ sleep 15
 git clone https://github.com/rolivieri/lfs272-assets.git
 rm -rf lfs272-assets/setup
 cd lfs272-assets/networkFiles
-wget -O https://raw.githubusercontent.com/rolivieri/lfs272-assets/main/setup/bootstrap.sh | bash
+wget -O - https://raw.githubusercontent.com/rolivieri/lfs272-assets/main/setup/bootstrap.sh | bash
