@@ -9,7 +9,7 @@ networks:
   basic:
 
 services:
-  ca.example.com:
+  ca.org1.example.com:
     image: hyperledger/fabric-ca
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
@@ -21,7 +21,7 @@ services:
     command: sh -c 'fabric-ca-server start -b admin:adminpw'
     volumes:
       - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
-    container_name: ca.example.com
+    container_name: ca.org1.example.com
     networks:
       - basic
 
@@ -60,7 +60,6 @@ services:
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=startFiles_basic
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
-    # command: peer node start --peer-chaincodedev=true
     ports:
       - 7051:7051
       - 7053:7053
@@ -98,4 +97,5 @@ services:
     depends_on:
       - orderer.example.com
       - peer0.org1.example.com
+      - ca.org1.example.com
 
