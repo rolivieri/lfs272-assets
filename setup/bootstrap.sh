@@ -5,6 +5,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+set -ev
+
 # Set env vars
 export PATH=~/Desktop/fabric-samples/bin:$PATH
 export FABRIC_CFG_PATH=${PWD}
@@ -44,8 +46,6 @@ if [ "$?" -ne 0 ]; then
 fi
 
 sleep 5s
-
-set -ev
 
 docker-compose -f docker-compose.yml down
 

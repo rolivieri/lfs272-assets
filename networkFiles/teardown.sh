@@ -4,16 +4,14 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# Exit on first error, print all commands.
+
 set -e
 
 # Shut down the Docker containers for the system tests.
 docker-compose -f docker-compose.yml kill && docker-compose -f docker-compose.yml down
 
-# remove the local state
-rm -f ~/.hfc-key-store/*
-
-# remove chaincode docker images
+# Remove chaincode Docker images
+docker stop $(docker ps -a -q)
 docker rm $(docker ps -aq)
 docker rmi $(docker images dev-* -q)
 
