@@ -11,6 +11,7 @@ export FABRIC_CFG_PATH=${PWD}
 CHANNEL_NAME=allarewelcome
 
 # Remove previous crypto material and config transactions
+mkdir -p config
 rm -fr config/*
 rm -fr crypto-config/*
 
