@@ -7,6 +7,9 @@
 
 set -ev
 
+# Set env vars
+export CHANNEL_NAME=allarewelcome
+
 docker-compose -f docker-compose.yml down
 
 docker-compose -f docker-compose.yml up -d ca.example.com orderer.example.com peer0.org1.example.com
