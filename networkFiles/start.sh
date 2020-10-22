@@ -17,7 +17,6 @@ docker-compose -f docker-compose.yml up -d ca.org1.example.com orderer.example.c
 # Wait for Hyperledger Fabric to start
 # In case of errors when running later commands, issue export FABRIC_START_TIMEOUT=<larger number>
 export FABRIC_START_TIMEOUT=15
-#echo ${FABRIC_START_TIMEOUT}
 sleep ${FABRIC_START_TIMEOUT}
 
 # Create the application channel
