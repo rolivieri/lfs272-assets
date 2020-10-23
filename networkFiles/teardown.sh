@@ -7,12 +7,22 @@
 
 set -e
 
-# Shut down the Docker containers for the system tests.
-docker-compose -f docker-compose.yml kill && docker-compose -f docker-compose.yml down
+# Shut down the Docker containers
+docker-compose -f docker-compose.yml kill && docker-compose -f docker-compose.yml down --volumes --remove-orphans
 
-# Remove chaincode Docker images
-# https://github.com/hyperledger/fabric-samples/blob/master/test-network/network.sh#L25
-#docker ps --filter name=NAMEHERE* -aq | xargs docker stop | xargs docker rm
-#docker rmi $(docker images dev-* -q)
+# Remove chaincode Docker container and images
+CONTAINER_IDS=$(docker ps -a | awk '($2 ~ /dev-peer.*/) {print $1}')
+if [ -z "$CONTAINER_IDS" -o "$CONTAINER_IDS" == " " ]; then
+    infoln "No containers available for deletion"
+else
+    docker rm -f $CONTAINER_IDS
+fi
+
+DOCKER_IMAGE_IDS=$(docker images | awk '($1 ~ /dev-peer.*/) {print $3}')
+if [ -z "$DOCKER_IMAGE_IDS" -o "$DOCKER_IMAGE_IDS" == " " ]; then
+    infoln "No images available for deletion"
+else
+    docker rmi -f $DOCKER_IMAGE_IDS
+fi
 
 # Your system is now clean
