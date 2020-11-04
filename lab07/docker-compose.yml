@@ -31,7 +31,7 @@ services:
     networks:
       - basic
 
-couchdbOrg2Peer0:
+  couchdbOrg2Peer0:
     container_name: couchdbOrg2Peer0
     image: hyperledger/fabric-couchdb
     environment:
@@ -42,7 +42,7 @@ couchdbOrg2Peer0:
     networks:
       - basic
 
-couchdbOrg2Peer1:
+  couchdbOrg2Peer1:
     container_name: couchdbOrg2Peer1
     image: hyperledger/fabric-couchdb
     environment:
@@ -69,7 +69,7 @@ couchdbOrg2Peer1:
     networks:
       - basic
 
-ca.org2.example.com:
+  ca.org2.example.com:
     image: hyperledger/fabric-ca:$IMAGE_TAG
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
