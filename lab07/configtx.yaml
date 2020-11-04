@@ -79,8 +79,6 @@ Organizations:
               Port: 7051
 
     - &Org2
-        # DefaultOrg defines the organization which is used in the sampleconfig
-        # of the fabric.git development environment
         Name: Org2MSP
 
         # ID to load the MSP definition as
