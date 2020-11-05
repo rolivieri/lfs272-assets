@@ -29,16 +29,9 @@ if [ "$?" -ne 0 ]; then
   exit 1
 fi
 
-# Generate channel configuration transaction
+# Generate channel creation transaction
 configtxgen -profile OneOrgChannel -outputCreateChannelTx ./config/$CHANNEL_NAME.tx -channelID $CHANNEL_NAME
 if [ "$?" -ne 0 ]; then
-  echo "Failed to generate channel configuration transaction..."
-  exit 1
-fi
-
-# Generate anchor peer transaction
-configtxgen -profile OneOrgChannel -outputAnchorPeersUpdate ./config/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
-if [ "$?" -ne 0 ]; then
-  echo "Failed to generate anchor peer update for Org1MSP..."
+  echo "Failed to generate channel creation transaction..."
   exit 1
 fi

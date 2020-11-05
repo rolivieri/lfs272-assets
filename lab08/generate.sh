@@ -29,10 +29,10 @@ if [ "$?" -ne 0 ]; then
   exit 1
 fi
 
-# Generate channel configuration transaction
-configtxgen -profile TwoOrgChannel -outputCreateChannelTx ./config/$CHANNEL_NAME.tx -channelID $CHANNEL_NAME
+# Generate channel creation transaction
+configtxgen -profile OneOrgChannel -outputCreateChannelTx ./config/$CHANNEL_NAME.tx -channelID $CHANNEL_NAME
 if [ "$?" -ne 0 ]; then
-  echo "Failed to generate channel configuration transaction..."
+  echo "Failed to generate channel creation transaction..."
   exit 1
 fi
 
