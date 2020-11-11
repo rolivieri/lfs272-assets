@@ -6,7 +6,7 @@
 #
 
 # Set env vars
-export PATH=~/Desktop/fabric-samples/bin:$PATH
+export PATH=/Users/olivieri/tmp/fabric/fabric-samples/bin:$PATH
 export FABRIC_CFG_PATH=${PWD}
 export CHANNEL_NAME=allarewelcome
 
